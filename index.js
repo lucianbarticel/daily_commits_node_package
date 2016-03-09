@@ -20,9 +20,9 @@ var DailyCommits = {
 	},
 	getCommitsFromDir : function(dirarr, srcpath){
 		for (var i=0, ilen = dirarr.length; i< ilen; i++){
-			var gitit = exec("cd "+srcpath + dirarr[i] + " && git log --since=yesterday --pretty=format:"+format);
+			var gitit = exec("cd "+srcpath + dirarr[i] + " && git log --since='9am' --pretty=format:"+format);
 			if(!gitit.stderr && gitit.stdout){
-				content+=dirarr[i]+" : "+gitit.stdout.replace("\n", " and ")+"\n";
+				content+=dirarr[i]+" : "+gitit.stdout+"\n";
 			}
 		}
 		return content;
